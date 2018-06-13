@@ -1,7 +1,9 @@
-const API_AI_TOKEN = 'cfb61d8aee9c448cbd9311cb9b2e477b';
+var config = require('config');
+
+const API_AI_TOKEN = process.env.API_AI_TOKEN || config.get('Tokens.API_AI_TOKEN');
 const apiAiClient = require('apiai')(API_AI_TOKEN);
 
-const FACEBOOK_ACCESS_TOKEN = 'EAALrhJb7NMcBAAlwEBagBl94fn3ZB1T8K97IdoPOSNRc0cbSOffVk0cG4Ps6WBfisjbOV63YKXAEfQgJn2UOo0ZBUwR2zyRUwa8DN6jlHVjFrYqtdRGcfZCZCrvRATq0r9ZBK78xfZAuofUAf351ZCFyQrgmudJ8evxeZBbtZAhKW2wZDZD';
+const FACEBOOK_ACCESS_TOKEN = process.env.FACEBOOK_ACCESS_TOKEN || config.get('Tokens.FACEBOOK_ACCESS_TOKEN');
 const request = require('request');
 
 const sendTextMessage = (senderId, text) => {
